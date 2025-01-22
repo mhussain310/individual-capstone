@@ -1,5 +1,16 @@
 # Weather Conditions and IBM's Stock Market Movements - Project Plan
 
+## Extraction Script Instructions
+
+1. Please place the `.env` file attached into the root directory.
+2. The extraction script `extract_to_database.py` that needs running is located in the /etl/extract directory.
+3. Please navigate to the extract directory by running `cd etl/extract/` in a terminal.
+4. Once there, run `python extract_to_database.py` to get the script to run.
+
+## Chron Details
+
+**Please run this script every hour.**
+
 ## Problem Statement
 
 **Is there a relationship between weather conditions and IBM's stock market movements?**
