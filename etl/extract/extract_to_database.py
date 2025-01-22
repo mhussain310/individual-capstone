@@ -1,14 +1,112 @@
 import os
+from typing import Dict
 
+import requests
 from dotenv import load_dotenv
-from sqlalchemy import text
-from sqlalchemy.exc import InternalError
+from sqlalchemy import create_engine, text
+from sqlalchemy.exc import InternalError, OperationalError, SQLAlchemyError
 
-from config.db_config import DatabaseConfigError, load_db_config
-from utils.db_utils import DatabaseConnectionError, get_db_connection
-from utils.request_utils import get_url
-from utils.sql_utils import import_sql_query
+# from config.db_config import DatabaseConfigError, load_db_config
+# from utils.db_utils import DatabaseConnectionError, get_db_connection
+# from utils.request_utils import get_url
+# from utils.sql_utils import import_sql_query
 
+
+class DatabaseConfigError(Exception):
+    pass
+
+
+def load_db_config() -> Dict[str, Dict[str, str]]:
+    config = {
+        "source_database": {
+            "dbname": os.getenv("SOURCE_DB_NAME", "error"),
+            "user": os.getenv("SOURCE_DB_USER", "error"),
+            "password": os.getenv("SOURCE_DB_PASSWORD", ""),
+            "host": os.getenv("SOURCE_DB_HOST", "error"),
+            "port": os.getenv("SOURCE_DB_PORT", "5432"),
+        },
+        "target_database": {
+            "dbname": os.getenv("TARGET_DB_NAME", "error"),
+            "user": os.getenv("TARGET_DB_USER", "error"),
+            "password": os.getenv("TARGET_DB_PASSWORD", ""),
+            "host": os.getenv("TARGET_DB_HOST", "error"),
+            "port": os.getenv("TARGET_DB_PORT", "5432"),
+        },
+    }
+
+    return config
+
+
+class DatabaseConnectionError(Exception):
+    pass
+
+
+class QueryExecutionError(Exception):
+    pass
+
+
+def get_db_connection(connection_params):
+    try:
+        engine = create_db_engine(connection_params)
+        connection = engine.connect()
+        return connection
+    except OperationalError as e:
+        raise DatabaseConnectionError(
+            f"Operational error when connecting to the database: {e}"
+        )
+    except SQLAlchemyError as e:
+        raise DatabaseConnectionError(f"Failed to connect to the database: {e}")
+    except Exception as e:
+        raise Exception(f"An error occurred: {e}")
+
+
+def create_db_engine(connection_params):
+    try:
+        if (
+            not connection_params.get("user")
+            or not connection_params.get("dbname")
+            or not connection_params.get("host")
+            or not connection_params.get("port")
+        ):
+            raise ValueError("User not provided")
+
+        engine = create_engine(
+            f"postgresql+psycopg2://{connection_params['user']}"
+            f":{connection_params['password']}@{connection_params['host']}"
+            f":{connection_params['port']}/{connection_params['dbname']}"
+        )
+        return engine
+    except ValueError as e:
+        raise DatabaseConnectionError(f"Invalid Connection Parameters: {e}")
+
+
+def get_url(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raises an HTTPError for bad responses
+        return response
+
+    except requests.exceptions.HTTPError as http_err:
+        return f"HTTP error occurred: {http_err}"
+    except requests.exceptions.ConnectionError as connection_err:
+        return f"Connection error occurred: {connection_err}"
+    except requests.exceptions.RequestException as err:
+        return f"Unexpected error occurred: {err}"
+
+
+def import_sql_query(filename, remove_newlines=True):
+    try:
+        with open(filename, "r") as file:
+            if remove_newlines:
+                imported_query = file.read().replace("\n", " ").strip()
+            else:
+                imported_query = file.read().strip()
+            return imported_query
+    except FileNotFoundError as e:
+        raise QueryExecutionError(f"Failed to import query: {e}")
+
+
+# #######################################################
 load_dotenv()
 weather_api_key = os.getenv("WEATHER_API_KEY")
 
