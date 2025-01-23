@@ -12,4 +12,4 @@ def get_url(url):
     except requests.exceptions.ConnectionError as connection_err:
         return f"Connection error occurred: {connection_err}"
     except requests.exceptions.RequestException as err:
-        return f"Unexpected error occurred: {err}"
+        raise f"Unexpected error occurred: {err}"
