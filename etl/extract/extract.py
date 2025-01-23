@@ -10,7 +10,3 @@ def extract_data():
 
     extracted_data = current_weather + historical_weather + stock_data
     return extracted_data
-
-
-extract_data()
-print("Finished Extraction!!!!")

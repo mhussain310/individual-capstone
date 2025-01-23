@@ -1,0 +1,92 @@
+date,location_name,maxtemp_c,mintemp_c,avgtemp_c,maxwind_mph,totalprecip_mm,totalsnow_cm,avgvis_miles,avghumidity,daily_will_it_rain,daily_chance_of_rain,daily_will_it_snow,daily_chance_of_snow,condition_text,condition_icon,condition_code,uv,sunrise,sunset,moonrise,moonset,moon_phase,moon_illumination
+2024-10-25,New York,15.5,6.4,11.3,10.3,0.0,0.0,6.0,55,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,5.0,07:19 AM,06:01 PM,12:25 AM,03:17 PM,Waning Crescent,41
+2024-10-26,New York,18.8,11.7,14.8,16.8,1.28,0.0,6.0,56,1,100,0,0,Light rain shower,//cdn.weatherapi.com/weather/64x64/day/353.png,1240,4.0,07:20 AM,05:59 PM,01:31 AM,03:41 PM,Waning Crescent,32
+2024-10-27,New York,13.2,8.1,10.7,11.6,0.0,0.0,6.0,35,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,3.0,07:21 AM,05:58 PM,02:33 AM,04:01 PM,Waning Crescent,23
+2024-10-28,New York,17.8,7.9,12.4,8.7,0.0,0.0,6.0,45,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,5.0,07:23 AM,05:57 PM,03:34 AM,04:20 PM,Waning Crescent,16
+2024-10-29,New York,15.1,10.7,12.7,14.5,0.0,0.0,6.0,70,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,4.0,07:24 AM,05:55 PM,04:33 AM,04:38 PM,Waning Crescent,10
+2024-10-30,New York,18.6,13.2,16.4,8.5,0.0,0.0,6.0,79,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,4.0,07:25 AM,05:54 PM,05:33 AM,04:57 PM,Waning Crescent,5
+2024-10-31,New York,23.5,13.3,17.9,11.6,0.0,0.0,6.0,75,0,0,0,0,Fog,//cdn.weatherapi.com/weather/64x64/day/248.png,1135,5.0,07:26 AM,05:53 PM,06:33 AM,05:18 PM,Waning Crescent,2
+2024-11-01,New York,20.3,11.9,17.3,14.8,3.16,0.0,5.0,64,1,100,0,0,Light rain,//cdn.weatherapi.com/weather/64x64/day/296.png,1183,5.0,07:27 AM,05:52 PM,07:36 AM,05:42 PM,New Moon,0
+2024-11-02,New York,14.3,9.4,12.0,14.1,0.0,0.0,6.0,42,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,3.0,07:28 AM,05:51 PM,08:40 AM,06:10 PM,Waxing Crescent,1
+2024-11-03,New York,12.6,2.9,7.5,8.7,0.0,0.0,6.0,46,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,4.0,07:30 AM,05:50 PM,09:46 AM,06:45 PM,Waxing Crescent,3
+2024-11-04,New York,12.5,6.0,9.8,11.2,0.0,0.0,6.0,65,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,3.0,06:30 AM,04:48 PM,09:49 AM,06:29 PM,Waxing Crescent,7
+2024-11-05,New York,19.0,13.2,16.1,13.0,0.0,0.0,5.0,84,0,0,0,0,Mist,//cdn.weatherapi.com/weather/64x64/day/143.png,1030,4.0,06:31 AM,04:47 PM,10:48 AM,07:23 PM,Waxing Crescent,13
+2024-11-06,New York,18.0,15.5,16.7,14.3,0.0,0.0,6.0,90,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,4.0,06:33 AM,04:46 PM,11:41 AM,08:25 PM,Waxing Crescent,20
+2024-11-07,New York,21.0,15.4,18.0,9.4,0.0,0.0,6.0,68,0,0,0,0,Mist,//cdn.weatherapi.com/weather/64x64/day/143.png,1030,5.0,06:34 AM,04:45 PM,12:24 PM,09:35 PM,Waxing Crescent,29
+2024-11-08,New York,18.6,12.1,15.1,8.9,0.0,0.0,6.0,53,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,5.0,06:35 AM,04:44 PM,01:00 PM,10:47 PM,First Quarter,39
+2024-11-09,New York,11.4,5.0,8.7,15.4,0.0,0.0,6.0,42,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,4.0,06:36 AM,04:43 PM,01:31 PM,No moonset,First Quarter,50
+2024-11-10,New York,12.9,5.4,9.4,12.5,1.63,0.0,5.0,49,1,100,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,3.0,06:37 AM,04:42 PM,01:57 PM,12:01 AM,Waxing Gibbous,61
+2024-11-11,New York,17.0,12.8,14.5,14.3,16.92,0.0,5.0,82,1,100,0,0,Light rain,//cdn.weatherapi.com/weather/64x64/day/296.png,1183,4.0,06:39 AM,04:41 PM,02:21 PM,01:15 AM,Waxing Gibbous,71
+2024-11-12,New York,12.2,4.6,9.7,19.2,0.0,0.0,6.0,56,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,3.0,06:40 AM,04:40 PM,02:45 PM,02:30 AM,Waxing Gibbous,81
+2024-11-13,New York,8.6,0.5,4.0,13.0,0.0,0.0,6.0,45,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,3.0,06:41 AM,04:39 PM,03:10 PM,03:47 AM,Waxing Gibbous,90
+2024-11-14,New York,7.9,2.1,5.3,8.5,0.0,0.0,6.0,50,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,2.0,06:42 AM,04:38 PM,03:39 PM,05:06 AM,Waxing Gibbous,96
+2024-11-15,New York,14.6,3.6,8.3,11.6,0.0,0.0,6.0,25,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,4.0,06:43 AM,04:37 PM,04:13 PM,06:27 AM,Full Moon,99
+2024-11-16,New York,15.6,4.7,9.6,14.1,0.0,0.0,6.0,40,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,5.0,06:45 AM,04:37 PM,04:56 PM,07:48 AM,Waning Gibbous,100
+2024-11-17,New York,13.6,3.9,9.1,10.5,0.0,0.0,6.0,56,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,3.0,06:46 AM,04:36 PM,05:50 PM,09:04 AM,Waning Gibbous,97
+2024-11-18,New York,16.9,7.2,11.9,13.4,0.0,0.0,6.0,63,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,5.0,06:47 AM,04:35 PM,06:52 PM,10:11 AM,Waning Gibbous,93
+2024-11-19,New York,13.3,8.0,10.6,11.9,0.0,0.0,6.0,54,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,4.0,06:48 AM,04:34 PM,08:01 PM,11:04 AM,Waning Gibbous,86
+2024-11-20,New York,11.5,10.1,10.6,10.5,2.09,0.0,6.0,71,1,100,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,3.0,06:49 AM,04:34 PM,09:11 PM,11:46 AM,Waning Gibbous,77
+2024-11-21,New York,11.0,6.5,8.6,20.8,91.3,0.0,4.0,88,1,100,0,0,Heavy rain,//cdn.weatherapi.com/weather/64x64/day/308.png,1195,3.0,06:50 AM,04:33 PM,10:18 PM,12:18 PM,Waning Gibbous,68
+2024-11-22,New York,8.2,2.5,4.9,15.9,0.0,0.0,6.0,72,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,2.0,06:52 AM,04:33 PM,11:23 PM,12:43 PM,Last Quarter,58
+2024-11-23,New York,8.3,4.3,6.4,18.8,0.0,0.0,5.0,75,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,2.0,06:53 AM,04:32 PM,No moonrise,01:06 PM,Waning Crescent,49
+2024-11-24,New York,11.9,4.9,7.9,17.9,0.0,0.0,6.0,73,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,3.0,06:54 AM,04:31 PM,12:24 AM,01:25 PM,Waning Crescent,39
+2024-11-25,New York,10.6,3.3,6.6,11.9,0.0,0.0,6.0,76,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,4.0,06:55 AM,04:31 PM,01:25 AM,01:44 PM,Waning Crescent,30
+2024-11-26,New York,12.1,6.5,9.9,11.4,0.0,0.0,5.0,82,0,0,0,0,Thundery outbreaks possible,//cdn.weatherapi.com/weather/64x64/day/200.png,1087,3.0,06:56 AM,04:31 PM,02:24 AM,02:02 PM,Waning Crescent,22
+2024-11-27,New York,7.4,1.9,5.1,9.2,0.0,0.0,6.0,73,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,3.0,06:57 AM,04:30 PM,03:24 AM,02:22 PM,Waning Crescent,15
+2024-11-28,New York,6.9,5.1,6.0,12.5,29.33,0.0,4.0,89,1,100,0,0,Moderate or heavy rain shower,//cdn.weatherapi.com/weather/64x64/day/356.png,1243,2.0,06:58 AM,04:30 PM,04:26 AM,02:45 PM,Waning Crescent,9
+2024-11-29,New York,5.8,0.9,3.6,16.6,0.0,0.0,6.0,80,0,0,0,0,Mist,//cdn.weatherapi.com/weather/64x64/day/143.png,1030,2.0,06:59 AM,04:29 PM,05:30 AM,03:12 PM,Waning Crescent,4
+2024-11-30,New York,3.2,-2.1,0.5,13.4,0.0,0.0,6.0,75,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:00 AM,04:29 PM,06:35 AM,03:45 PM,Waning Crescent,1
+2024-12-01,New York,2.6,-3.7,-0.7,12.8,0.0,0.0,6.0,72,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,1.0,07:01 AM,04:29 PM,07:41 AM,04:26 PM,New Moon,0
+2024-12-02,New York,4.6,-3.1,0.3,8.9,0.0,0.0,6.0,63,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:02 AM,04:29 PM,08:42 AM,05:18 PM,Waxing Crescent,1
+2024-12-03,New York,4.4,-1.5,1.2,12.3,0.0,0.0,6.0,72,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:03 AM,04:28 PM,09:37 AM,06:18 PM,Waxing Crescent,4
+2024-12-04,New York,2.3,-3.1,0.2,17.0,0.0,0.0,6.0,79,0,0,0,0,Mist,//cdn.weatherapi.com/weather/64x64/day/143.png,1030,1.0,07:04 AM,04:28 PM,10:23 AM,07:27 PM,Waxing Crescent,9
+2024-12-05,New York,2.4,-1.6,1.0,23.0,27.13,0.0,5.0,73,1,100,0,0,Moderate or heavy sleet,//cdn.weatherapi.com/weather/64x64/day/320.png,1207,1.0,07:05 AM,04:28 PM,11:02 AM,08:38 PM,Waxing Crescent,16
+2024-12-06,New York,2.1,-2.4,-0.4,17.9,0.0,0.0,6.0,55,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,1.0,07:06 AM,04:28 PM,11:33 AM,09:51 PM,Waxing Crescent,24
+2024-12-07,New York,3.7,-3.2,-0.2,12.1,0.0,0.0,6.0,65,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,2.0,07:07 AM,04:28 PM,12:00 PM,11:03 PM,Waxing Crescent,34
+2024-12-08,New York,8.3,0.5,3.4,14.5,0.0,0.0,6.0,62,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,2.0,07:08 AM,04:28 PM,12:24 PM,No moonset,First Quarter,45
+2024-12-09,New York,7.5,2.9,5.0,7.6,25.49,0.0,4.0,87,1,100,0,0,Moderate or heavy rain shower,//cdn.weatherapi.com/weather/64x64/day/356.png,1243,2.0,07:09 AM,04:28 PM,12:47 PM,12:15 AM,Waxing Gibbous,56
+2024-12-10,New York,10.6,6.9,8.2,11.4,0.0,0.0,4.0,96,0,0,0,0,Fog,//cdn.weatherapi.com/weather/64x64/day/248.png,1135,3.0,07:10 AM,04:28 PM,01:11 PM,01:29 AM,Waxing Gibbous,67
+2024-12-11,New York,12.8,8.4,10.7,20.6,65.89,0.0,5.0,95,1,100,0,0,Moderate or heavy rain shower,//cdn.weatherapi.com/weather/64x64/day/356.png,1243,3.0,07:10 AM,04:28 PM,01:37 PM,02:43 AM,Waxing Gibbous,78
+2024-12-12,New York,5.3,-2.7,1.9,20.8,9.56,0.0,5.0,79,1,100,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,3.0,07:11 AM,04:29 PM,02:07 PM,04:01 AM,Waxing Gibbous,87
+2024-12-13,New York,0.3,-4.1,-2.5,12.3,0.0,0.0,6.0,69,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:12 AM,04:29 PM,02:45 PM,05:20 AM,Waxing Gibbous,94
+2024-12-14,New York,2.0,-5.3,-2.0,6.5,0.0,0.0,6.0,72,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:13 AM,04:29 PM,03:33 PM,06:38 AM,Waxing Gibbous,98
+2024-12-15,New York,1.8,-5.9,-1.8,7.6,0.0,0.0,6.0,88,0,0,0,0,Mist,//cdn.weatherapi.com/weather/64x64/day/143.png,1030,1.0,07:13 AM,04:29 PM,04:31 PM,07:50 AM,Full Moon,100
+2024-12-16,New York,11.4,4.0,7.4,9.2,41.0,0.0,3.0,91,1,100,0,0,Moderate or heavy rain shower,//cdn.weatherapi.com/weather/64x64/day/356.png,1243,3.0,07:14 AM,04:30 PM,05:39 PM,08:50 AM,Waning Gibbous,99
+2024-12-17,New York,12.0,7.3,10.2,12.8,27.71,0.0,5.0,93,1,100,0,0,Moderate rain,//cdn.weatherapi.com/weather/64x64/day/302.png,1189,3.0,07:15 AM,04:30 PM,06:49 PM,09:38 AM,Waning Gibbous,96
+2024-12-18,New York,7.5,2.6,4.1,15.4,0.0,0.0,5.0,92,0,0,0,0,Fog,//cdn.weatherapi.com/weather/64x64/day/248.png,1135,2.0,07:15 AM,04:30 PM,08:00 PM,10:14 AM,Waning Gibbous,90
+2024-12-19,New York,6.3,1.8,4.1,13.6,9.9,0.0,5.0,82,1,100,0,0,Patchy light rain,//cdn.weatherapi.com/weather/64x64/day/293.png,1180,2.0,07:16 AM,04:31 PM,09:08 PM,10:43 AM,Waning Gibbous,83
+2024-12-20,New York,3.3,-0.6,1.5,11.6,3.09,0.0,6.0,96,1,100,0,0,Moderate rain at times,//cdn.weatherapi.com/weather/64x64/day/299.png,1186,1.0,07:17 AM,04:31 PM,10:12 PM,11:07 AM,Waning Gibbous,75
+2024-12-21,New York,1.3,-3.5,-0.6,18.3,0.0,0.0,5.0,79,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,1.0,07:17 AM,04:32 PM,11:13 PM,11:28 AM,Waning Gibbous,66
+2024-12-22,New York,-2.3,-7.2,-5.1,15.7,0.0,0.0,6.0,63,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:18 AM,04:32 PM,No moonrise,11:47 AM,Last Quarter,57
+2024-12-23,New York,-0.6,-9.0,-5.1,10.3,0.0,0.0,6.0,67,0,0,0,0,Cloudy,//cdn.weatherapi.com/weather/64x64/day/119.png,1006,1.0,07:18 AM,04:33 PM,12:13 AM,12:06 PM,Waning Crescent,47
+2024-12-24,New York,1.9,-3.3,-0.8,9.6,0.0,0.0,5.0,83,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,1.0,07:18 AM,04:34 PM,01:13 AM,12:25 PM,Waning Crescent,38
+2024-12-25,New York,2.1,-4.7,-1.6,8.1,0.0,0.0,6.0,77,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:19 AM,04:34 PM,02:14 AM,12:46 PM,Waning Crescent,29
+2024-12-26,New York,1.8,-5.4,-2.3,6.5,0.0,0.0,6.0,81,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:19 AM,04:35 PM,03:17 AM,01:12 PM,Waning Crescent,21
+2024-12-27,New York,2.9,-4.8,-0.9,5.1,0.0,0.0,6.0,80,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,2.0,07:19 AM,04:36 PM,04:21 AM,01:42 PM,Waning Crescent,14
+2024-12-28,New York,7.5,0.4,4.4,3.4,53.27,0.0,2.0,98,1,100,0,0,Heavy rain,//cdn.weatherapi.com/weather/64x64/day/308.png,1195,2.0,07:20 AM,04:36 PM,05:27 AM,02:20 PM,Waning Crescent,8
+2024-12-29,New York,10.5,5.4,7.1,17.4,0.0,0.0,3.0,99,0,0,0,0,Fog,//cdn.weatherapi.com/weather/64x64/day/248.png,1135,3.0,07:20 AM,04:37 PM,06:30 AM,03:09 PM,Waning Crescent,3
+2024-12-30,New York,11.9,6.1,10.0,19.0,67.64,0.0,5.0,90,1,100,0,0,Heavy rain,//cdn.weatherapi.com/weather/64x64/day/308.png,1195,3.0,07:20 AM,04:38 PM,07:29 AM,04:07 PM,New Moon,1
+2024-12-31,New York,8.7,1.0,4.5,16.1,4.19,0.0,5.0,96,1,100,0,0,Fog,//cdn.weatherapi.com/weather/64x64/day/248.png,1135,2.0,07:20 AM,04:39 PM,08:19 AM,05:15 PM,Waxing Crescent,0
+2025-01-01,New York,9.3,3.6,7.3,18.6,82.1,0.0,5.0,88,1,100,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,2.0,07:20 AM,04:39 PM,09:01 AM,06:27 PM,Waxing Crescent,2
+2025-01-02,New York,5.6,-0.3,2.2,18.1,0.0,0.0,6.0,68,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,3.0,07:20 AM,04:40 PM,09:35 AM,07:42 PM,Waxing Crescent,6
+2025-01-03,New York,4.0,-3.6,-0.4,15.0,0.0,0.0,6.0,77,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,2.0,07:20 AM,04:41 PM,10:04 AM,08:55 PM,Waxing Crescent,12
+2025-01-04,New York,0.4,-4.1,-1.9,17.0,0.0,0.0,6.0,66,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,2.0,07:20 AM,04:42 PM,10:28 AM,10:07 PM,Waxing Crescent,20
+2025-01-05,New York,1.5,-6.3,-2.7,16.3,0.0,0.0,6.0,70,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:20 AM,04:43 PM,10:51 AM,11:20 PM,Waxing Crescent,30
+2025-01-06,New York,-0.7,-4.0,-2.5,15.0,0.28,0.18,5.0,75,0,0,1,100,Light snow,//cdn.weatherapi.com/weather/64x64/day/326.png,1213,1.0,07:20 AM,04:44 PM,11:15 AM,No moonset,First Quarter,41
+2025-01-07,New York,-0.9,-4.5,-2.5,19.2,0.1,0.07,6.0,51,0,0,1,100,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,2.0,07:20 AM,04:45 PM,11:39 AM,12:32 AM,Waxing Gibbous,52
+2025-01-08,New York,-0.3,-3.6,-2.1,16.8,0.0,0.0,6.0,45,0,45,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,1.0,07:20 AM,04:46 PM,12:07 PM,01:47 AM,Waxing Gibbous,64
+2025-01-09,New York,0.4,-7.4,-4.1,21.3,0.0,0.0,6.0,62,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:20 AM,04:47 PM,12:41 PM,03:03 AM,Waxing Gibbous,74
+2025-01-10,New York,0.3,-5.8,-2.6,19.0,0.0,0.0,6.0,64,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,2.0,07:20 AM,04:48 PM,01:24 PM,04:19 AM,Waxing Gibbous,83
+2025-01-11,New York,1.9,-3.2,-1.0,11.6,10.74,7.76,5.0,77,0,0,1,100,Heavy snow,//cdn.weatherapi.com/weather/64x64/day/338.png,1225,1.0,07:19 AM,04:49 PM,02:16 PM,05:32 AM,Waxing Gibbous,91
+2025-01-12,New York,5.5,-2.6,0.8,13.4,0.0,0.0,6.0,70,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,3.0,07:19 AM,04:50 PM,03:19 PM,06:36 AM,Waxing Gibbous,96
+2025-01-13,New York,5.0,-1.1,1.4,10.7,0.0,0.0,6.0,77,0,0,0,0,Cloudy,//cdn.weatherapi.com/weather/64x64/day/119.png,1006,2.0,07:19 AM,04:51 PM,04:28 PM,07:28 AM,Full Moon,99
+2025-01-14,New York,-0.5,-3.5,-1.9,16.3,0.0,0.0,6.0,64,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,1.0,07:18 AM,04:53 PM,05:40 PM,08:09 AM,Waning Gibbous,100
+2025-01-15,New York,1.4,-5.8,-2.7,17.2,0.0,0.0,6.0,60,0,0,0,0,Sunny,//cdn.weatherapi.com/weather/64x64/day/113.png,1000,2.0,07:18 AM,04:54 PM,06:49 PM,08:42 AM,Waning Gibbous,98
+2025-01-16,New York,-0.8,-5.6,-3.4,9.2,0.0,0.0,6.0,68,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,1.0,07:18 AM,04:55 PM,07:56 PM,09:08 AM,Waning Gibbous,94
+2025-01-17,New York,2.4,-4.9,-1.1,8.9,0.0,0.0,6.0,72,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,2.0,07:17 AM,04:56 PM,08:59 PM,09:30 AM,Waning Gibbous,89
+2025-01-18,New York,6.0,-0.4,2.8,10.7,0.0,0.0,6.0,84,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,2.0,07:17 AM,04:57 PM,10:00 PM,09:50 AM,Waning Gibbous,82
+2025-01-19,New York,4.4,-2.1,1.4,19.0,2.82,2.04,3.0,83,0,0,1,100,Fog,//cdn.weatherapi.com/weather/64x64/day/248.png,1135,1.0,07:16 AM,04:58 PM,11:01 PM,10:09 AM,Waning Gibbous,74
+2025-01-20,New York,-1.8,-8.2,-5.4,16.8,5.2,3.76,5.0,63,0,0,1,100,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,1.0,07:15 AM,05:00 PM,No moonrise,10:27 AM,Waning Gibbous,65
+2025-01-21,New York,-7.0,-10.5,-8.6,13.2,0.0,0.0,6.0,54,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,2.0,07:15 AM,05:01 PM,12:01 AM,10:48 AM,Last Quarter,56
+2025-01-22,New York,-4.3,-11.3,-8.1,10.3,0.0,0.0,6.0,49,0,0,0,0,Partly cloudy,//cdn.weatherapi.com/weather/64x64/day/116.png,1003,2.0,07:14 AM,05:02 PM,01:03 AM,11:12 AM,Waning Crescent,47
+2025-01-23,New York,-2.7,-8.3,-5.8,9.6,0.0,0.0,6.0,64,0,0,0,0,Overcast,//cdn.weatherapi.com/weather/64x64/day/122.png,1009,1.0,07:13 AM,05:03 PM,02:06 AM,11:39 AM,Waning Crescent,37
