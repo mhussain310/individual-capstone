@@ -39,4 +39,4 @@ def save_dataframe_to_csv(
     output_dir = os.path.join(ROOT_DIR, relative_output_dir)
     os.makedirs(output_dir, exist_ok=True)
     df.to_csv(os.path.join(output_dir, filename), index=False)
-    print(f"Data saved to {os.path.join(output_dir, filename)}")
+    # print(f"Data saved to {os.path.join(output_dir, filename)}")

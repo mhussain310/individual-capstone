@@ -2,7 +2,11 @@ import os
 
 import pandas as pd
 
+from dotenv import load_dotenv
 from utils.request_utils import get_url
+
+load_dotenv()
+STOCK_API_KEY = os.getenv("STOCK_API_KEY")
 
 ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 
@@ -13,8 +17,10 @@ daily_stock_data_file_path = os.path.join(
     ROOT_PATH, "data", "raw", "daily_stock_data.csv"
 )
 
-hourly_stock_data_url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo&datatype=csv"
-daily_stock_data_url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv"
+# hourly_stock_data_url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo&datatype=csv"
+# daily_stock_data_url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv"
+hourly_stock_data_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=60min&outputsize=full&apikey={STOCK_API_KEY}&datatype=csv"
+daily_stock_data_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv"
 
 
 def extract_stock_data():
