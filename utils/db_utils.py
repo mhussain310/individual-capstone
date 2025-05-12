@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine
-from sqlalchemy.exc import SQLAlchemyError, OperationalError
+from sqlalchemy.exc import OperationalError, SQLAlchemyError
+from utils.file_utils import get_absolute_path
 
 
 class DatabaseConnectionError(Exception):
@@ -27,19 +28,28 @@ def get_db_connection(connection_params):
 
 def create_db_engine(connection_params):
     try:
-        if (
-            not connection_params.get("user")
-            or not connection_params.get("dbname")
-            or not connection_params.get("host")
-            or not connection_params.get("port")
-        ):
-            raise ValueError("User not provided")
+        dbname = connection_params.get("dbname")
 
-        engine = create_engine(
-            f"postgresql+psycopg2://{connection_params['user']}"
-            f":{connection_params['password']}@{connection_params['host']}"
-            f":{connection_params['port']}/{connection_params['dbname']}"
-        )
+        if not dbname:
+            raise ValueError("Database name is missing")
+
+        if dbname.endswith((".db", ".sqlite", ".sqlite3")):
+            # Development (SQLite)
+            engine = create_engine(f"sqlite:////{get_absolute_path(dbname)}")
+        else:
+            # Production (Postgres)
+            required_keys = ["user", "password", "host", "port"]
+            for key in required_keys:
+                if not connection_params.get(key):
+                    raise ValueError(f"Missing required DB connection parameter: {key}")
+
+            engine = create_engine(
+                f"postgresql+psycopg2://{connection_params['user']}"
+                f":{connection_params['password']}@{connection_params['host']}"
+                f":{connection_params['port']}/{connection_params['dbname']}"
+            )
+
         return engine
+
     except ValueError as e:
         raise DatabaseConnectionError(f"Invalid Connection Parameters: {e}")

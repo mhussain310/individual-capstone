@@ -1,35 +1,27 @@
-import os
+from typing import List
 
 import pandas as pd
 
-from dotenv import load_dotenv
+from config.api_config import STOCK_API_KEY
+from config.file_path_config import (
+    DAILY_STOCK_DATA_FILE_PATH,
+    HOURLY_STOCK_DATA_FILE_PATH,
+)
 from utils.request_utils import get_url
 
-load_dotenv()
-STOCK_API_KEY = os.getenv("STOCK_API_KEY")
-
-ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-
-hourly_stock_data_file_path = os.path.join(
-    ROOT_PATH, "data", "raw", "hourly_stock_data.csv"
-)
-daily_stock_data_file_path = os.path.join(
-    ROOT_PATH, "data", "raw", "daily_stock_data.csv"
-)
-
-# hourly_stock_data_url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo&datatype=csv"
-# daily_stock_data_url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv"
-hourly_stock_data_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=60min&outputsize=full&apikey={STOCK_API_KEY}&datatype=csv"
-daily_stock_data_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv"
+hourly_stock_data_url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo&datatype=csv"
+daily_stock_data_url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv"
+# hourly_stock_data_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=60min&outputsize=full&apikey={STOCK_API_KEY}&datatype=csv"
+# daily_stock_data_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv"
 
 
-def extract_stock_data():
+def extract_stock_data() -> List[pd.DataFrame]:
     try:
-        hourly_stock_data_df = extract_stock_data_execution(
-            hourly_stock_data_url, hourly_stock_data_file_path
+        hourly_stock_data_df = fetch_stock_data(
+            hourly_stock_data_url, HOURLY_STOCK_DATA_FILE_PATH
         )
-        daily_stock_data_df = extract_stock_data_execution(
-            daily_stock_data_url, daily_stock_data_file_path
+        daily_stock_data_df = fetch_stock_data(
+            daily_stock_data_url, DAILY_STOCK_DATA_FILE_PATH
         )
 
         return [hourly_stock_data_df, daily_stock_data_df]
@@ -37,9 +29,13 @@ def extract_stock_data():
         raise Exception(f"Failed to extract data: {e}")
 
 
-def extract_stock_data_execution(url, file_path):
+def fetch_stock_data(url: str, file_path: str) -> pd.DataFrame:
     response = get_url(url)
     with open(file_path, "wb") as file:
         file.write(response.content)
     df = pd.read_csv(file_path)
     return df
+
+
+if __name__ == "__main__":
+    extract_stock_data()

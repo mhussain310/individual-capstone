@@ -1,7 +1,5 @@
-import os
-
 import pandas as pd
-from sqlalchemy import MetaData, Table, text
+from sqlalchemy import text
 from sqlalchemy.exc import InternalError
 
 from config.db_config import DatabaseConfigError, load_db_config
@@ -10,25 +8,18 @@ from utils.db_utils import (
     QueryExecutionError,
     get_db_connection,
 )
+from utils.file_utils import get_absolute_path
 from utils.sql_utils import import_sql_query
 
 TARGET_TABLE_NAMES = [
-    "mh_current_stock_and_weather",
-    "mh_hourly_stock_and_weather",
-    "mh_daily_stock_and_weather",
+    "current_stock_and_weather",
+    "hourly_stock_and_weather",
+    "daily_stock_and_weather",
 ]
 
-SET_PRIMARY_MERGED_CURRENT = os.path.join(
-    os.path.dirname(__file__), "../sql/set_primary_key_mc.sql"
-)
-
-SET_PRIMARY_MERGED_HOURLY = os.path.join(
-    os.path.dirname(__file__), "../sql/set_primary_key_mh.sql"
-)
-
-SET_PRIMARY_MERGED_DAILY = os.path.join(
-    os.path.dirname(__file__), "../sql/set_primary_key_md.sql"
-)
+SET_PRIMARY_MERGED_CURRENT = get_absolute_path("etl/sql/set_primary_key_mc.sql")
+SET_PRIMARY_MERGED_HOURLY = get_absolute_path("etl/sql/set_primary_key_mh.sql")
+SET_PRIMARY_MERGED_DAILY = get_absolute_path("etl/sql/set_primary_key_md.sql")
 
 PRIMARY_KEY_FILE_PATHS = [
     SET_PRIMARY_MERGED_CURRENT,
@@ -37,22 +28,21 @@ PRIMARY_KEY_FILE_PATHS = [
 ]
 
 
-def load_data(data):
+def load_data(data: list[str]):
     create_table(data)
 
     return None
 
 
-def create_table(data):
+def create_table(data: list[str]):
     try:
-        connection_details = load_db_config()["target_database"]
+        connection_details = load_db_config()
         connection = get_db_connection(connection_details)
         for dataframe in data:
             for i, target_table in enumerate(TARGET_TABLE_NAMES):
                 dataframe.to_sql(
                     target_table,
                     connection,
-                    schema="student",
                     if_exists="replace",
                     index=False,
                 )

@@ -1,15 +1,37 @@
 # Weather Conditions and IBM's Stock Market Movements - Project Plan
 
-## Extraction Script Instructions
+## Getting Started (Locally)
 
-1. Please place the `.env` file attached into the root directory.
-2. The extraction script `extract_to_database.py` that needs running is located in the /etl/extract directory.
-3. Please navigate to the extract directory by running `cd etl/extract/` in a terminal.
-4. Once there, run `python extract_to_database.py` to get the script to run.
+1. Obtain API keys from [WeatherAPI](https://www.weatherapi.com/) (for weather data) and [AlphaVantage](https://www.alphavantage.co/) (for stock data).
+2. Ensure you are at the root of the project directory and create a `.env` file.
+3. Copy the snippet below into your `.env` file and add in your API keys where necessary. (Do **NOT** change the names of the variables).
 
-## Chron Details
+```env
+# API Keys
+WEATHER_API_KEY=<INSERT YOUR WeatherAPI API KEY HERE>
+STOCK_API_KEY=<INSERT YOUR AlphaVantage API KEY HERE>
 
-**Please run this script every hour.**
+# Database Configuration for development (sqlite db)
+DB_NAME=data/database.db
+DB_USER=None
+DB_PASSWORD=None
+DB_HOST=None
+DB_PORT=None
+```
+
+4. Open a terminal, and ensure you are the root of the project directory.
+5. Create a virtual environment and activate it.
+
+```bash
+python -m venv venv
+source venv/bin/activate      # On macOS/Linux
+source venv\Scripts\activate       # On Windows
+```
+
+6. Run `pip install -r requirements-setup.txt`.
+7. Finally, run `pip install -e .` to install the project as a package.
+8. To run the ETL pipeline, run `python scripts/run_etl.py`.
+9. To run the Streamlit App, run `streamlit run scripts/app.py`.
 
 ## Problem Statement
 
@@ -100,11 +122,10 @@ graph TD;
 A[Start] --> B[Extract Historical Weather Data from API];
 A --> C[Extract IBM Stock Market Data from API. Includes current and historical data];
 A --> X[Extract Current Weather Data from API];
-X --> Y@{shape: cyl, label: "Store Current Weather Data in Source Database"};
-Y --> Z[Extract and Clean Current Weather Data];
+X --> Y[Clean Current Weather Data];
 B --> D[Clean Historical Weather Data];
 C --> E[Clean Stock Market Data];
-Z --> F[Merge Current Weather & Stock Data];
+Y --> F[Merge Current Weather & Stock Data];
 E --> F;
 E --> G;
 D --> G[Merge Historical Weather & Stock Data];
