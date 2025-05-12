@@ -33,7 +33,12 @@ def fetch_historical_weather_records(location: str = "New_York") -> list[dict]:
     weather_data_list = []
     for date_pair in DATE_PAIRS:
         url = f"{BASE_URL}/history.json?key={WEATHER_API_KEY}&q={location}&dt={date_pair[1]}&end_dt={date_pair[0]}"
-        response_data = get_url(url).json()
+        response = get_url(url)
+
+        if isinstance(response, str):
+            raise ValueError(f"Request failed: {response}")
+
+        response_data = response.json()
         weather_data_list.append(response_data)
 
     return weather_data_list
