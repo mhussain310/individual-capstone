@@ -7,6 +7,13 @@ from utils.file_utils import generate_data_file_path, save_dataframe_to_csv
 def clean_weather_data(
     weather_data: pd.DataFrame, file_name: str, sort_by: str
 ) -> pd.DataFrame:
+    # Convert dictionary columns to strings (if any)
+    for column in weather_data.columns:
+        if isinstance(
+            weather_data[column].iloc[0], dict
+        ):  # Check if the column contains dictionaries
+            weather_data[column] = weather_data[column].apply(str)  # Convert to string
+
     # Sort values
     weather_data = sort_values(weather_data, sort_by)
 

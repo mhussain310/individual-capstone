@@ -8,7 +8,9 @@ import streamlit as st
 
 st.title("Do Weather conditions affect the stock price of IBM?")
 
-current_df = pd.read_csv("../data/output/current_stock_and_weather.csv")
+current_df = pd.read_csv(
+    "../data/output/current_stock_and_weather_2025-05-12_215712.csv"
+)
 
 with st.sidebar:
     # IBM Stock Section
@@ -16,8 +18,8 @@ with st.sidebar:
     st.markdown(
         f"""
         <div style="font-size: 14px;">
-            <b>Latest Stock Price:</b> ${current_df.iloc[-1]['close']:.2f} <br>
-            <b>Latest Update:</b> {current_df.iloc[-1]['local_time']}
+            <b>Latest Stock Price:</b> ${current_df.iloc[0]['close']:.2f} <br>
+            <b>Latest Update:</b> {current_df.iloc[0]['local_time']}
         </div>
         """,
         unsafe_allow_html=True,
@@ -44,10 +46,14 @@ with st.sidebar:
 
     st.markdown("---")
 
-merged_hourly_df = pd.read_csv("../data/output/hourly_stock_and_weather.csv")
+merged_hourly_df = pd.read_csv(
+    "../data/output/hourly_stock_and_weather_2025-05-12_221737.csv"
+)
 merged_hourly_df = merged_hourly_df.sort_values(by="time")
 
-merged_daily_df = pd.read_csv("../data/output/daily_stock_and_weather.csv")
+merged_daily_df = pd.read_csv(
+    "../data/output/daily_stock_and_weather_2025-05-12_221737.csv"
+)
 merged_daily_df = merged_daily_df.sort_values(by="date")
 
 data_interval = st.radio("Select Data Interval:", ["Hourly", "Daily"])

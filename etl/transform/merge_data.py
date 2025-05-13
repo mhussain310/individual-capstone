@@ -26,7 +26,7 @@ def merge_data(
 
     # Save the dataframe as a CSV for logging purposes
     processed_file_path = generate_data_file_path(
-        prefix=file_name, base_dir=BASE_PROCESSED_DIR
+        prefix=file_name, base_dir=BASE_PROCESSED_DIR, subdir="merged"
     )
     save_dataframe_to_csv(merged_df, processed_file_path)
 

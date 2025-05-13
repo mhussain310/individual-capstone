@@ -34,6 +34,8 @@ def setup_env(argv):
 def cleanup_previous_env():
     # Clear relevant environment variables
     keys_to_clear = [
+        "WEATHER_API_KEY",
+        "STOCK_API_KEY",
         "DB_NAME",
         "DB_USER",
         "DB_PASSWORD",

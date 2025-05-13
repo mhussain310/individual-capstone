@@ -19,7 +19,7 @@ def floor_date_to_hour(df: pd.DataFrame, column: str = "timestamp") -> pd.DataFr
     df[column] = pd.to_datetime(df[column])
 
     # Floor to nearest hour
-    df[column] = df[column].dt.floor("H")
+    df[column] = df[column].dt.floor("h")
 
     # Drop duplicates, keeping the first occurrence
     df.drop_duplicates(subset=[column], keep="first", inplace=True, ignore_index=True)

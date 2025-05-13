@@ -1,9 +1,12 @@
 from typing import Dict, List, Tuple
 
 import pandas as pd
+import time
 
-from config.api_config import BASE_URL, WEATHER_API_KEY
+from config.api_config import BASE_WEATHER_URL, get_weather_api_key
 from config.dates_config import load_date_config
+from config.file_path_config import BASE_RAW_DIR
+from utils.file_utils import generate_data_file_path, save_dataframe_to_csv
 from utils.request_utils import get_url
 
 # The load_date_config fucntion was created to retrieve data for the past 3 months.
@@ -22,17 +25,28 @@ def extract_historical_weather_data() -> List[pd.DataFrame]:
     hourly_historical_weather_df = pd.DataFrame(hourly_historical_weather)
     daily_historical_weather_df = pd.DataFrame(daily_historical_weather)
 
+    # Save the dataframes as a CSV files for logging purposes
+    raw_hourly_historical_file_path = generate_data_file_path(
+        prefix="extracted_hourly_historical", base_dir=BASE_RAW_DIR, subdir="weather"
+    )
+    save_dataframe_to_csv(hourly_historical_weather_df, raw_hourly_historical_file_path)
+
+    raw_daily_historical_file_path = generate_data_file_path(
+        prefix="extracted_daily_historical", base_dir=BASE_RAW_DIR, subdir="weather"
+    )
+    save_dataframe_to_csv(daily_historical_weather_df, raw_daily_historical_file_path)
+
     return [hourly_historical_weather_df, daily_historical_weather_df]
 
 
 # Function to fetch current weather data from API
 def fetch_historical_weather_records(location: str = "New_York") -> list[dict]:
-    if not WEATHER_API_KEY:
+    if not get_weather_api_key():
         raise ValueError("Missing WEATHER_API_KEY")
 
     weather_data_list = []
     for date_pair in DATE_PAIRS:
-        url = f"{BASE_URL}/history.json?key={WEATHER_API_KEY}&q={location}&dt={date_pair[1]}&end_dt={date_pair[0]}"
+        url = f"{BASE_WEATHER_URL}/history.json?key={get_weather_api_key()}&q={location}&dt={date_pair[1]}&end_dt={date_pair[0]}"
         response = get_url(url)
 
         if isinstance(response, str):
@@ -40,6 +54,8 @@ def fetch_historical_weather_records(location: str = "New_York") -> list[dict]:
 
         response_data = response.json()
         weather_data_list.append(response_data)
+
+        time.sleep(6)
 
     return weather_data_list
 

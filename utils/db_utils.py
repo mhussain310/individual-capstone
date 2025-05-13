@@ -1,3 +1,5 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.exc import OperationalError, SQLAlchemyError
 from utils.file_utils import get_absolute_path
@@ -35,7 +37,12 @@ def create_db_engine(connection_params):
 
         if dbname.endswith((".db", ".sqlite", ".sqlite3")):
             # Development (SQLite)
-            engine = create_engine(f"sqlite:////{get_absolute_path(dbname)}")
+            db_path = os.path.normpath(get_absolute_path(dbname))
+
+            # Create the directory if it doesn't exist
+            os.makedirs(os.path.dirname(db_path), exist_ok=True)
+
+            engine = create_engine(f"sqlite:///{db_path}")
         else:
             # Production (Postgres)
             required_keys = ["user", "password", "host", "port"]

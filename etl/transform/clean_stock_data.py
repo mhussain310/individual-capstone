@@ -5,6 +5,13 @@ from utils.file_utils import generate_data_file_path, save_dataframe_to_csv
 
 
 def clean_stock_data(stock_data: pd.DataFrame, file_name: str) -> pd.DataFrame:
+    # Convert dictionary columns to strings (if any)
+    for column in stock_data.columns:
+        if isinstance(
+            stock_data[column].iloc[0], dict
+        ):  # Check if the column contains dictionaries
+            stock_data[column] = stock_data[column].apply(str)  # Convert to string
+
     # Remove duplicates
     stock_data = stock_data.drop_duplicates()
 

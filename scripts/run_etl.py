@@ -2,10 +2,10 @@ import os
 import sys
 
 from config.env_config import setup_env
-from utils.file_utils import clear_data_folders
 from etl.extract.extract import extract_data
-from etl.transform.transform import transform_data
 from etl.load.load import load_data
+from etl.transform.transform import transform_data
+from utils.file_utils import clear_data_folders
 
 
 def main():

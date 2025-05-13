@@ -2,30 +2,44 @@ from typing import List
 
 import pandas as pd
 
-from config.api_config import BASE_URL, WEATHER_API_KEY
+from config.api_config import BASE_WEATHER_URL, get_weather_api_key
+from config.file_path_config import BASE_RAW_DIR
 from utils.request_utils import get_url
+from utils.file_utils import generate_data_file_path, save_dataframe_to_csv
 
 
 # Put the extracted data into a csv file and return path to file
 def extract_current_weather_data() -> List[pd.DataFrame]:
-    raw_data = fetch_current_weather_data()
-    weather_record = extract_current_weather_record(raw_data)
-    current_weather_df = pd.DataFrame([weather_record])
+    # Fetch the current weather data
+    current_weather_data = fetch_current_weather_data()
 
+    # Extract the relavant data from the response
+    parsed_current_weather_data = parse_current_weather_data(current_weather_data)
+
+    # Convert the parsed data into a dataframe
+    current_weather_df = pd.DataFrame([parsed_current_weather_data])
+
+    # Save the dataframe as a CSV for logging purposes
+    raw_data_file_path = generate_data_file_path(
+        prefix="extracted_current_weather", base_dir=BASE_RAW_DIR, subdir="weather"
+    )
+    save_dataframe_to_csv(current_weather_df, raw_data_file_path)
+
+    # Return the extracted dataframe
     return [current_weather_df]
 
 
 # Function to fetch current weather data from API
 def fetch_current_weather_data(location: str = "New_York") -> dict:
-    if not WEATHER_API_KEY:
+    if not get_weather_api_key():
         raise ValueError("Missing WEATHER_API_KEY")
 
-    url = f"{BASE_URL}/current.json?key={WEATHER_API_KEY}&q={location}&aqi=yes"
+    url = f"{BASE_WEATHER_URL}/current.json?key={get_weather_api_key()}&q={location}&aqi=yes"
     return get_url(url).json()
 
 
 # Function to extract relevant data from response
-def extract_current_weather_record(response_data: dict) -> dict:
+def parse_current_weather_data(response_data: dict) -> dict:
     location = response_data["location"]
     current = response_data["current"]
     condition = current["condition"]
