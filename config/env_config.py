@@ -1,6 +1,7 @@
 import os
 
 from dotenv import load_dotenv
+from utils.file_utils import get_absolute_path
 
 ENVS = ["dev", "test", "prod"]
 
@@ -26,9 +27,10 @@ def setup_env(argv):
         raise KeyError("ENV variable not set")
 
     env_file = ".env" if env == "prod" else f".env.{env}"
+    env_path = get_absolute_path(env_file)
     print(f"Loading environment variables from: {env_file}")
 
-    load_dotenv(env_file, override=True)
+    load_dotenv(dotenv_path=env_path, override=True)
 
 
 def cleanup_previous_env():

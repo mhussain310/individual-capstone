@@ -13,8 +13,8 @@ DAILY_STOCK_DATA_FILE_PATH = get_absolute_path(
 )
 
 # Output file paths of final transformed data
-CURRENT_STOCK_AND_WEATHER_OUTPUT_FILE_PATH = generate_data_file_path(
-    prefix="current_stock_and_weather", base_dir=BASE_OUTPUT_DIR
+CURRENT_WEATHER_OUTPUT_FILE_PATH = generate_data_file_path(
+    prefix="current_weather", base_dir=BASE_OUTPUT_DIR
 )
 HOURLY_STOCK_AND_WEATHER_OUTPUT_FILE_PATH = generate_data_file_path(
     prefix="hourly_stock_and_weather", base_dir=BASE_OUTPUT_DIR

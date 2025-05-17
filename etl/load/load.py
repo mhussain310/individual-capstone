@@ -9,33 +9,33 @@ from utils.db_utils import (
 )
 
 TARGET_TABLE_NAMES = [
-    "current_stock_and_weather",
+    "current_weather",
     "hourly_stock_and_weather",
     "daily_stock_and_weather",
 ]
 
 
-def load_data(data: list[str]):
+def load_data(data: list[pd.DataFrame]):
     create_table(data)
 
     return None
 
 
-def create_table(data: list[str]):
+def create_table(data: list[pd.DataFrame]):
     connection = None
     try:
         connection_details = load_db_config()
         connection = get_db_connection(connection_details)
-        for dataframe in data:
-            for target_table in TARGET_TABLE_NAMES:
-                dataframe["id"] = range(1, len(dataframe) + 1)
-                dataframe.set_index("id", inplace=True)
-                dataframe.to_sql(
-                    target_table,
-                    connection,
-                    if_exists="replace",
-                    index=True,
-                )
+
+        for i in range(len(data)):
+            dataframe = data[i]
+            target_table = TARGET_TABLE_NAMES[i]
+
+            df_copy = dataframe.copy()
+            df_copy["id"] = range(1, len(df_copy) + 1)
+            df_copy.set_index("id", inplace=True)
+            df_copy.to_sql(target_table, connection, if_exists="replace", index=True)
+
         connection.commit()
     except InternalError:
         print("Target table exists")

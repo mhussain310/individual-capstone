@@ -1,30 +1,37 @@
-import matplotlib.pyplot as plt
-import pandas as pd
+import sys
+
 import plotly.graph_objects as go
-import seaborn as sns
 import streamlit as st
 
-# st.set_page_config(page_title="Weather vs IBM Stock Price", layout="wide")
+from config.db_config import DatabaseConfigError, load_db_config
+from config.env_config import setup_env
+from utils.db_utils import get_db_connection
+from utils.sql_utils import execute_sql_query
+
+# Load environment variables
+setup_env(sys.argv)
+
+st.set_page_config(page_title="Weather vs IBM Stock Price")
 
 st.title("Do Weather conditions affect the stock price of IBM?")
 
-current_df = pd.read_csv(
-    "../data/output/current_stock_and_weather_2025-05-12_215712.csv"
-)
+# Connect to the database
+try:
+    connection_details = load_db_config()
+    conn = get_db_connection(connection_details)
+
+    current_df = execute_sql_query("sql/select_current_weather.sql", conn)
+    merged_hourly_df = execute_sql_query("sql/select_hourly_data.sql", conn)
+    merged_daily_df = execute_sql_query("sql/select_daily_data.sql", conn)
+
+except DatabaseConfigError as e:
+    print(f"Database not configured correctly: {e}")
+    raise
+finally:
+    conn.close()
+
 
 with st.sidebar:
-    # IBM Stock Section
-    st.header("IBM Stock")
-    st.markdown(
-        f"""
-        <div style="font-size: 14px;">
-            <b>Latest Stock Price:</b> ${current_df.iloc[0]['close']:.2f} <br>
-            <b>Latest Update:</b> {current_df.iloc[0]['local_time']}
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
     # Weather Section
     st.markdown("---")
     st.header("Current Weather")
@@ -33,6 +40,7 @@ with st.sidebar:
     st.markdown(
         f"""
         <div style="font-size: 14px;">
+            <b>Local Time:</b> {current_df.iloc[-1]['local_time']} <br>
             <b>Location:</b> {current_df.iloc[-1]['location_name']}, USA <br>
             <b>Condition:</b> {current_df.iloc[-1]['condition_text']} <br>
             <b>Temperature:</b> {current_df.iloc[-1]['temp_c']}°C <br>
@@ -45,16 +53,6 @@ with st.sidebar:
     )
 
     st.markdown("---")
-
-merged_hourly_df = pd.read_csv(
-    "../data/output/hourly_stock_and_weather_2025-05-12_221737.csv"
-)
-merged_hourly_df = merged_hourly_df.sort_values(by="time")
-
-merged_daily_df = pd.read_csv(
-    "../data/output/daily_stock_and_weather_2025-05-12_221737.csv"
-)
-merged_daily_df = merged_daily_df.sort_values(by="date")
 
 data_interval = st.radio("Select Data Interval:", ["Hourly", "Daily"])
 
