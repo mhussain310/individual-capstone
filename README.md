@@ -13,10 +13,10 @@ STOCK_API_KEY=<INSERT YOUR AlphaVantage API KEY HERE>
 
 # Database Configuration for development (sqlite db)
 DB_NAME=data/database.db
-DB_USER=None
-DB_PASSWORD=None
-DB_HOST=None
-DB_PORT=None
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+DB_PORT=
 ```
 
 4. Open a terminal, and ensure you are the root of the project directory.

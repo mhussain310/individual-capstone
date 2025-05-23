@@ -86,7 +86,7 @@ def clear_data_folders(base_dir="data"):
     subfolders = ["raw", "processed", "output"]
 
     for folder in subfolders:
-        folder_path = os.path.join(base_dir, folder)
+        folder_path = get_absolute_path(f"{base_dir}/{folder}")
         if not os.path.exists(folder_path):
             print(f"Skipping missing folder: {folder_path}")
             continue
